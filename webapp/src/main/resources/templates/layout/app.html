@@ -24,6 +24,9 @@
     <!--/* 右寄せ */-->
     <div>
       <!-- TODO: ログアウト -->
+      <form th:action="@{/logout}" method="POST">
+        <input type="submit" value="ログアウト" class="button-group-logout" />
+      </form>
     </div>
   </nav>
 

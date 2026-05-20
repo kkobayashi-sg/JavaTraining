@@ -29,4 +29,12 @@ public class RootController {
 	public String login() {
 		return "login";
 	}
+
+	/**
+	 * 
+	 */
+	// @PostMapping("/logout")
+	// public String logout() {
+
+	// }
 }
