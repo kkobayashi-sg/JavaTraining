@@ -12,7 +12,7 @@ import com.s_giken.training.webapp.model.entity.User;
 public class UserRowMapper implements RowMapper<User> {
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
         User user = new User();
-        user.setUserName(rs.getString("userName"));
+        user.setUserName(rs.getString("username"));
         user.setPassword(rs.getString("password"));
         user.setIsEnabled(rs.getBoolean("enabled"));
         return user;

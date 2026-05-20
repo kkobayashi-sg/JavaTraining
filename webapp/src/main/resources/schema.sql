@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS t_user (
     username        VARCHAR(255)  NOT NULL,
     password        VARCHAR(255)  NOT NULL,
     enabled         BOOLEAN       NOT NULL,
-    PRIMARY KEY (userName)
+    PRIMARY KEY (username)
 );
 
 CREATE TABLE IF NOT EXISTS t_member (

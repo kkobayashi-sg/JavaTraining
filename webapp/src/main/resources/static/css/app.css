@@ -77,10 +77,11 @@ nav a:hover {
 }
 
 .button-group-logout {
-    border: 2px solid blue;
+    border: 2px solid yellowgreen;
     padding: 4px 20px;
     font-size: 20px;
-    color: blue;
+    background-color: #f5c6cb;
+    color: purple;
     cursor: pointer;
 }
 
