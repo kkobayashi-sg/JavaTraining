@@ -23,7 +23,7 @@
       </li>
     </ul>
     <!--/* 右寄せ */-->
-    <div>
+    <div th:if="${#fields.isLoggedIn}">
       <!-- TODO: ログアウト -->
       <form th:action="@{/logout}" method="POST">
         <input type="submit" value="ログアウト" class="button-group-logout" />

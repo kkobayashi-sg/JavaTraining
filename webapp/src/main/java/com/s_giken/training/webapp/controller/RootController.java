@@ -1,13 +1,17 @@
 package com.s_giken.training.webapp.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.stereotype.Controller;
+
+import lombok.RequiredArgsConstructor;
 
 /**
  * ルートパスのコントローラークラス
  */
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/")
 public class RootController {
 	/**
@@ -26,7 +30,8 @@ public class RootController {
 	 * @return ログイン画面のテンプレート名
 	 */
 	@GetMapping("/login")
-	public String login() {
+	public String login(Model model) {
+		model.addAttribute("isLoggedIn", true);
 		return "login";
 	}
 
