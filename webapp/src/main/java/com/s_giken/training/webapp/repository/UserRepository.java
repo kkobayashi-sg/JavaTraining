@@ -18,7 +18,7 @@ public class UserRepository implements IUserRepository {
     }
 
     public User findByUsername(String userName) {
-        String sql = "SELECT * FROM T_USER WHERE userName = ?";
+        String sql = "SELECT * FROM T_USER WHERE username = ?";
         User user = null;
         try {
             user = jdbcTemplaete.queryForObject(sql, userRowMapper, userName);

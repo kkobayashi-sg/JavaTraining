@@ -20,7 +20,8 @@ public class RootController {
 	 * @return トップ画面のテンプレート名
 	 */
 	@GetMapping("/")
-	public String hello() {
+	public String hello(Model model) {
+		model.addAttribute("isLoggedIn", true);
 		return "top";
 	}
 
@@ -30,8 +31,8 @@ public class RootController {
 	 * @return ログイン画面のテンプレート名
 	 */
 	@GetMapping("/login")
-	public String login(Model model) {
-		model.addAttribute("isLoggedIn", true);
+	public String login() {
+		
 		return "login";
 	}
 
