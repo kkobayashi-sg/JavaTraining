@@ -6,14 +6,19 @@
   <!--/* 加入者情報検索画面 */-->
   <form th:action="@{/member/search}" th:object="${memberSearchCondition}" method="POST">
     <!--/* メールアドレス */-->
-    <label for="mail">メールアドレス
+    <div class="form-group">
+      <label for="mail">メールアドレス</label>
       <input type="text" th:field="*{mail}" />
-    </label>
+    </div>
     <!--/* 氏名 */-->
+    <div class="form-group">
+      <label for="name">氏名</label>
+      <input type="text" th:field="*{name}" />
+    </div>
     <!--/* ここにテキストフォームを設置 */-->
     <div class="button-group">
-      <button type="submit">検索</button>
-      <a role="button" class="outline" th:href="@{/member/add}">登録</a>
+      <button type="submit" id="search">検索</button>
+      <a role="button" class="outline" id="addAccount" th:href="@{/member/add}">登録</a>
     </div>
   </form>
 </div>

@@ -69,6 +69,20 @@ public class MemberRepository implements IMemberRepository {
     }
 
     /**
+     * 
+     */
+    @Override
+    public List<Member> findByNameLike(String name) {
+        String sql = "SELECT * FROM T_MEMBER WHERE name like ?";
+        Object[] args = { name };
+        int[] argTypes = {Types.VARCHAR };
+        List<Member> result = jdbcTemplate.query(sql, args, argTypes, rowMapper);
+        return result;
+    }
+
+
+
+    /**
      * 加入者情報をデータベースへ登録する。
      *
      * @param member 追加するMemberオブジェクト。 memberIdプロパティの値は null としなくてはならない

@@ -46,12 +46,14 @@ nav a:hover {
 /* ボタングループ */
 .button-group {
     display: flex;
+    justify-content: center;
     gap: 0.5rem;
     align-items: center;
     margin-top: 1rem;
 }
 
 .button-group button {
+    text-align: center;
     width: fit-content;
 }
 
@@ -93,4 +95,26 @@ nav a:hover {
 
 [role="button"] {
     white-space: nowrap;
+}
+
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    width: 150px;
+    text-align: left;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+.form-group input {
+    width: 300px;
+    margin-bottom: 0;
 }

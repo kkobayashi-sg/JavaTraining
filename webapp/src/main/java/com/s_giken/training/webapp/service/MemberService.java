@@ -10,12 +10,19 @@ import com.s_giken.training.webapp.model.entity.Member;
 import com.s_giken.training.webapp.model.entity.MemberSearchCondition;
 import com.s_giken.training.webapp.repository.IMemberRepository;
 
+
+
+import com.s_giken.training.webapp.repository.IUserRepository;
+import com.s_giken.training.webapp.repository.UserRepository;
+
+
 /**
  * 加入者管理機能のサービスクラス(実態クラス)
  */
 @Service
 public class MemberService implements IMemberService {
     private IMemberRepository memberRepository;
+    private IUserRepository userRepository;
 
     /**
      * 加入者管理機能のサービスクラスのコンストラクタ
@@ -56,7 +63,8 @@ public class MemberService implements IMemberService {
     @Override
     public List<Member> findByConditions(MemberSearchCondition memberSearchCondition) {
         // TODO: 氏名検索用メソッドを呼び出すように修正
-        return memberRepository.findByMailLike("%" + memberSearchCondition.getMail() + "%");
+        //return memberRepository.findByMailLike("%" + memberSearchCondition.getMail() + "%");
+        return memberRepository.findByNameLike("%" + memberSearchCondition.getName() + "%");
     }
 
     /**
