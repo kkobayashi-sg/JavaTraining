@@ -60,12 +60,42 @@ public class MemberService implements IMemberService {
      * @param memberSearchCondition 加入者検索条件
      * @return 条件に一致した加入者情報
      */
+    // @Override
+    // public List<Member> findByConditions(MemberSearchCondition memberSearchCondition) {
+    //     // TODO: 氏名検索用メソッドを呼び出すように修正
+    //     //return memberRepository.findByMailLike("%" + memberSearchCondition.getMail() + "%");
+    //     return memberRepository.findByNameLike("%" + memberSearchCondition.getName() + "%");
+    // }
+
+    /**
+     * 加入者を条件検索する
+     * 
+     * @param memberSearchCondition 加入者検索条件
+     * @return 条件に一致した加入者情報
+     */
     @Override
     public List<Member> findByConditions(MemberSearchCondition memberSearchCondition) {
+        String mail = "%" + memberSearchCondition.getMail() + "%";
+        String name = "%" + memberSearchCondition.getName() + "%";
         // TODO: 氏名検索用メソッドを呼び出すように修正
         //return memberRepository.findByMailLike("%" + memberSearchCondition.getMail() + "%");
-        return memberRepository.findByNameLike("%" + memberSearchCondition.getName() + "%");
+        return memberRepository.findByMailLikeAndNameLike(mail, name);
     }
+
+     /**
+     * 加入者を条件検索する
+     * 
+     * @param memberSearchCondition 加入者検索条件
+     * @return 条件に一致した加入者情報
+     */
+    // @Override
+    // public List<Member> findByMailLikeAndNameLike(String mail, String name) {
+    //     // TODO: 氏名検索用メソッドを呼び出すように修正
+    //     return memberRepository.findByMailLikeAndNameLike(
+    //         "%" + memberSearchCondition.getMail() + "%",
+    //         "%" + memberSearchCondition.getName() + "%"
+    //     );
+    // }
 
     /**
      * 加入者を登録する

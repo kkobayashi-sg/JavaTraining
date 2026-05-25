@@ -21,6 +21,8 @@ public interface IMemberService {
 
     public List<Member> findByConditions(MemberSearchCondition memberSearchCondition);
 
+   
+
     public void add(Member member);
 
     public void update(Member member);
