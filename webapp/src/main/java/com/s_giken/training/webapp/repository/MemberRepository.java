@@ -75,6 +75,10 @@ public class MemberRepository implements IMemberRepository {
      */
     @Override
     public List<Member> findByMailLikeAndNameLike(String mail, String name) {
+        
+        mail = "%" + mail + "%";
+        name = "%" + name + "%";
+
         String sql = "SELECT * FROM T_MEMBER WHERE mail LIKE ? AND name LIKE ?";
         Object[] args = {mail,name};
         int[] argTypes = {Types.VARCHAR, Types.VARCHAR};
