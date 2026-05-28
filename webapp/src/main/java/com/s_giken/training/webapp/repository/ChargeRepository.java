@@ -113,8 +113,8 @@ public class ChargeRepository implements IChargeRepository {
             charge.getName(),
             charge.getAmount(),
             charge.getStartDate(),
-            charge.getEndDate(),
-            charge.getPaymentMethod().getCode());
+            charge.getEndDate());
+            //charge.getPaymentMethod().getCode());
 
         return processed_count;
     }
@@ -143,8 +143,8 @@ public class ChargeRepository implements IChargeRepository {
                 charge.getName(),
                 charge.getAmount(),
                 charge.getStartDate(),
-                charge.getEndDate(),
-                charge.getPaymentMethod().getCode());
+                charge.getEndDate());
+                //charge.getPaymentMethod().getCode());
 
         return processed_count;
     }
