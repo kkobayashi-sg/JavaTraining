@@ -81,7 +81,7 @@ public class ChargeRepository implements IChargeRepository {
     public int add(Charge charge) {
         Long chargeId = charge.getChargeId();
         if (chargeId == null) {
-            chargeId = jdbcTemplate.queryForObject("SELECT", Long.class);
+            chargeId = jdbcTemplate.queryForObject("SELECT nextval('t_charge_seq')", Long.class);
             charge.setChargeId(chargeId);
         }
 
@@ -100,8 +100,6 @@ public class ChargeRepository implements IChargeRepository {
                         ?,
                         ?,
                         ?,
-                        ?,
-                        ?,
                         CURRENT_TIMESTAMP,
                         CURRENT_TIMESTAMP
                     )
@@ -109,7 +107,6 @@ public class ChargeRepository implements IChargeRepository {
         int processed_count = jdbcTemplate.update(
             sql,
             chargeId,
-            charge.getChargeId(),
             charge.getName(),
             charge.getAmount(),
             charge.getStartDate(),
@@ -133,7 +130,7 @@ public class ChargeRepository implements IChargeRepository {
                         amount = ?,
                         start_date = ?,
                         end_date = ?,
-                        created_at = ?,
+                        created_at = CURRENT_TIMESTAMP,
                         modified_at = CURRENT_TIMESTAMP
                     WHERE charge_id = ?
                 """;
@@ -143,8 +140,8 @@ public class ChargeRepository implements IChargeRepository {
                 charge.getName(),
                 charge.getAmount(),
                 charge.getStartDate(),
-                charge.getEndDate());
-                //charge.getPaymentMethod().getCode());
+                charge.getEndDate(),
+                charge.getChargeId());
 
         return processed_count;
     }

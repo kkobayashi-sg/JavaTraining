@@ -99,6 +99,21 @@ public class ChargeController {
     }
 
     /**
+     * 料金追加画面を表示する
+     * @param charge
+     * @param bindingResult
+     * @param redirectAttributes
+     * @return
+     */
+    @GetMapping("/add")
+    public String formAddCharge(Model model) {
+        var charge = new Charge();
+        model.addAttribute("isAddMode", true);
+        model.addAttribute("charge", charge);
+        return "charge_edit";
+    }
+
+    /**
      * 料金情報を登録する
      * 
      * 

@@ -2,6 +2,7 @@
 
 psql -h database -U trainingapp -W trainingapp <<'__EOS__'
 CREATE SEQUENCE IF NOT EXISTS t_member_seq AS BIGINT START WITH 1 INCREMENT BY 1 NO CYCLE; 
+CREATE SEQUENCE IF NOT EXISTS t_charge_seq AS BIGINT START WITH 1 INCREMENT BY 1 NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS t_user (
     username        VARCHAR(255)  NOT NULL,
@@ -26,7 +27,7 @@ CREATE TABLE IF NOT EXISTS t_member (
 CREATE TABLE IF NOT EXISTS t_charge (
     charge_id       BIGINT, 
     name            VARCHAR(127) NOT NULL,
-    amount          NUMERIC(9,0) NOT nULL,
+    amount          NUMERIC(9,0) NOT NULL,
     start_date      DATE NOT NULL,
     end_date        DATE,
     created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -38,12 +39,13 @@ BEGIN;
 
 DELETE FROM T_MEMBER;
 DELETE FROM T_USER;
+DELETE FROM T_CHARGE;
 
 INSERT INTO T_USER VALUES ('user', '$argon2id$v=19$m=14,t=2,p=1$eVczdXhrMWlDZERWUnZWdA$HjSDtkidFBp49L0k8ZlvtTVcKkC//uOkIjDRiYbGIWg', true);
 
 INSERT INTO T_MEMBER VALUES (nextval('t_member_seq'), 'yamada@example.com', '山田　太郎', '東京都千代田区1-1-1', '2026-01-01', NULL, 1, NOW(), NOW());
 
-INSERT INTO T_CHARGE VALUES (1, '基本料金', 1000, '2001-11-13', NULL, NOW(), NOW());
+INSERT INTO T_CHARGE VALUES (nextval('t_charge_seq'), '基本料金', 1000, '2001-11-13', NULL, NOW(), NOW());
 
 COMMIT;
 __EOS__

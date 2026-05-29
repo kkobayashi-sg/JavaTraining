@@ -26,7 +26,7 @@ public class Charge {
     @Size(min = 1, max = 31)
     private String name;
 
-    @NotBlank
+    @NotNull
     private int amount;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
