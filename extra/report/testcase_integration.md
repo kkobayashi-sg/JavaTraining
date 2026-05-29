@@ -13,14 +13,8 @@
 - [x] 機能メニューで「加入者情報管理」をクリックし、加入者検索画面に遷移する
 ![加入者検索画面](./evidence/3_member_search_condition.png)
 
-- [x] 加入者検索画面にて、登録された加入者の名前（今回は「山田太郎」）の名前の一部およびメールアドレス（今回は「yamada@example.com」）を入力し、対象の加入者情報を表示できる
-![加入者検索結果画面](./evidence/4_member_search_result.png)
-
 - [x] 機能メニューで「料金管理」をクリックし、料金検索画面に遷移する
 ![料金検索画面](./evidence/5_charge_search_condition.png)
-
-- [x] 料金検索画面にて、登録された料金名（今回は「基本料金」）の一部を入力し、対象の料金情報を表示できる
-![料金検索結果画面](./evidence/6_charge_search_result.png)
 
 - [x] 機能メニューで「トップ」をクリックし、トップ画面に遷移する
 ![トップ画面](./evidence/7_top.png)
